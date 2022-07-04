@@ -1,9 +1,11 @@
 package com.example.oauthwithandroid.github;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class OauthController {
@@ -12,7 +14,11 @@ public class OauthController {
 
     @GetMapping("/github")
     public GithubUserInfo userInfo(String code) {
+        log.info("code = {}", code);
         GithubToken githubToken = oauthService.requestAccessToken(code);
-        return oauthService.requestUserInfo(githubToken);
+        log.info("githubtoken={}",githubToken.toHeader());
+        GithubUserInfo githubUserInfo = oauthService.requestUserInfo(githubToken);
+        log.info("githubUserInfo={},{}", githubUserInfo.getUserId(), githubUserInfo.getAvatarUrl());
+        return githubUserInfo;
     }
 }
