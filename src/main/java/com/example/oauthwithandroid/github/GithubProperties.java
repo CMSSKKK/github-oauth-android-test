@@ -10,7 +10,6 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 @Getter
 @RequiredArgsConstructor
 @NoArgsConstructor
-@ConstructorBinding
 @ConfigurationProperties(prefix = "github")
 public class GithubProperties {
 
