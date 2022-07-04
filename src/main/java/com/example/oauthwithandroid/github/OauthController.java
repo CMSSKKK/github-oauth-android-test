@@ -17,7 +17,7 @@ public class OauthController {
     public GithubUserInfo userInfo(@RequestParam String code) {
         log.info("code = {}", code);
         GithubToken githubToken = oauthService.requestAccessToken(code);
-        log.info("githubtoken={}",githubToken.toHeader());
+        log.info("githubToken={}",githubToken.toHeader());
         GithubUserInfo githubUserInfo = oauthService.requestUserInfo(githubToken);
         log.info("githubUserInfo={},{}", githubUserInfo.getUserId(), githubUserInfo.getAvatarUrl());
         return githubUserInfo;
