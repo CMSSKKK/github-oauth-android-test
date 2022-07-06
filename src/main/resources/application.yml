@@ -1,3 +1,3 @@
-github:
-  client-id: 201079016bf7f2a7f4b1
-  client-secret: 1538a5dd10eb5bca7a451e5823cb9bc62488edc9
+spring:
+  config:
+    import: classpath:auth.yml

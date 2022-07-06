@@ -7,15 +7,14 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.context.annotation.PropertySource;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @ConfigurationProperties(prefix = "github")
-@Setter
 @PropertySource("classpath:auth.yml")
+@ConstructorBinding
 public class GithubProperties {
 
     @JsonProperty("client_id")
-    private String clientId;
+    private final String clientId;
     @JsonProperty("client_secret")
-    private String clientSecret;
+    private final String clientSecret;
 }
