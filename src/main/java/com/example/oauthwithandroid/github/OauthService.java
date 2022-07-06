@@ -13,7 +13,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class OauthService {
 
     private static final String ACCESS_TOKEN_URL = "https://github.com/login/oauth/access_token";
-    private static final String USER_INFO_API = "https://api.github.com/users";
+    private static final String USER_INFO_API = "https://api.github.com/user";
 
     private final GithubProperties githubProperties;
 
